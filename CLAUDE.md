@@ -17,7 +17,8 @@
 - 見出し・本文ともに明朝体（`--font-heading` / `--font-body` とも同じ明朝フォントスタック）で統一し、和の情緒を強調
 - カラーは生成り／和紙色（`--color-bg: #f7f2e6`）、藍色に近い深緑（`--color-primary: #1f3b3d`、コンセプト帯やフッターに使用）、朱色（`--color-accent: #b23a2e`、はんこ・アクセント用）の3トーン構成
 - 背景に和紙のような微細なドット模様（`radial-gradient`）を敷き、質感を演出
-- ロゴ・見出しラベル・ヒーローのアイキャッチには朱色の丸（印/はんこのモチーフ）を使用
+- ヘッダーロゴは`images/logo.png`（円形・緑と朱の勾玉風デザイン、透過PNG）を使用。見出しラベル・ヒーローのアイキャッチには引き続き朱色の丸（印/はんこのモチーフ）を使用
+- ヘッダーナビゲーション: ロゴ画像追加でロゴ幅が広がり、`max-width: 860px`のハンバーガー切り替えのままだと860〜1040px幅でナビ項目が折り返して2行になる不具合があったため、ナビ/ハンバーガーの切り替えだけを`max-width: 1040px`の独立したメディアクエリに分離（他のグリッド・ヒーロー等のモバイル調整は引き続き860px）。あわせて`.nav a`に`white-space: nowrap`を追加
 - カード類は罫線グリッド区切り、ボタンはごく小さい角丸（2px）と細い罫線で、和紙・障子を思わせる直線的な余白設計
 
 ## 店舗情報
@@ -112,7 +113,13 @@
   - `images/shinkyu-mondou.jpg` — 鍼灸施術タブ用。院長がクリップボードを使って問診している様子
   - `images/suiso-kyuin.jpg` — 水素吸引タブ用。実際の院内でMERUSA1000を使用している様子（旧`suiso-kyuin.png`は観葉植物のある別カットだったため差し替え、削除済み）
   - `images/biyoushinkyu.jpg` — 美容鍼灸タブ用。院長が顔に実際にはり治療を行っている様子（旧写真は横向きに座った女性の別カットだったため差し替え）。差し替えに伴い表示パターンも`.menu-side-image`（縦長トリミング）から`.menu-side-image-wide`（横長・全体表示）に変更
+  - `images/shinkyu-sejutsu.jpg` — 鍼灸施術タブ用。院長が背中にはり治療を行っている様子
+  - `images/about-mondou.jpg` — 「当院について」（`.about-image`）用。院長が問診している様子（元は鍼灸施術タブの写真だったが`shinkyu-sejutsu.jpg`追加に伴い改名・移動）。旧`images/shisetsu-naikan.jpg`（院内の施術スペース写真）と差し替え。`shisetsu-naikan.jpg`ファイル自体は`images/`に残っているが現在どこからも参照されていない
 - いずれも既存の`.menu-with-image` / `.menu-side-image-wide`パターン（`aspect-ratio: 5/4`、`object-fit: contain`、横長画像をトリミングせず全体表示）を踏襲
+- トップ（ヒーロー）セクションは画像なしのテキストのみレイアウト（一時的に画像追加を試したが、最終的に「当院について」に写真を集約する方針となり元に戻した）
+- `images/logo.png` — ヘッダーロゴ（400x400、透過PNG）。円形の緑/朱ツートンに「神経整体サロン健美堂」の文字と両手のイラストをあしらったデザイン
+- `images/evidence.jpg` — 神経整体T-Groupのエビデンス資料（2021日本疲労学会学術大会発表分）。原本画像は`#shinkei-seitai`セクション左カラムの3種類の神経イラスト（`.seitai-image`）の直下に配置（`.seitai-media`内、`.seitai-evidence-image`、クリックで別タブ拡大表示）。エビデンスの説明文・数値（`.seitai-evidence`）は右カラムの`.seitai-text`側、本文・注意書きの下に配置（画像と文章で左右に分離）
+- `.seitai-image`と`.seitai-evidence-image`は元画像のアスペクト比が異なる（イラストは横長3:2、エビデンス資料は縦長4:5）ため、両方とも高さ320px（モバイルは220px）・`object-fit: contain`の統一ボックスで表示し、見た目のサイズを揃えている
 
 ## 未対応・要確認事項（TODO）
 
@@ -122,6 +129,9 @@
 - [x] `.menu-grid` を3列グリッドから縦1列に変更（全メニューブロック共通）。他の施術メニュー（神経整体・水素吸引・鍼灸施術）にも今後画像を追加していく想定
 - [x] 水素吸引の施術風景写真（`images/suiso-kyuin.jpg`、水素吸入器MERUSA1000を使用している様子・実際の院内での撮影）を水素吸引タブに追加済み。横長画像のためトリミングせず全体表示（`.menu-side-image-wide`、aspect-ratio 5:4、object-fit: contain）
 - [x] 神経整体の施術風景写真（`images/seitai-sejutsu.jpg`、院長が施術している様子）を神経整体タブに追加済み（`.menu-with-image` / `.menu-side-image-wide` パターン）
-- [x] 鍼灸施術タブに問診風景写真（`images/shinkyu-mondou.jpg`）を追加済み（同パターン）
+- [x] 鍼灸施術タブに施術風景写真（`images/shinkyu-sejutsu.jpg`、背中にはり治療を行っている様子）を追加済み（同パターン）
+- [x] 「当院について」の写真を院内スペース（`shisetsu-naikan.jpg`）から問診風景（`images/about-mondou.jpg`）に差し替え済み
+- [x] ヘッダーロゴを画像化（`images/logo.png`）。従来のテキストロゴは`.logo-text`として画像の右に併記
+- [x] 「神経整体とは」セクションに神経整体T-Groupのエビデンス（2021日本疲労学会学術大会発表・自律神経機能への効果）を追加済み（`.seitai-evidence`）。発表資料原本（`images/evidence.jpg`）をそのまま埋め込み表示
 - [x] 院内の施術スペース写真（`images/shisetsu-naikan.jpg`）を`.about-image`に追加済み
 - [ ] 加工前の元写真（PNG、`~/Downloads/`にランダムなGUIDファイル名で保存）が未削除。不要であれば削除可
