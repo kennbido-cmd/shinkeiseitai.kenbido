@@ -111,13 +111,14 @@
   - `images/seitai-sejutsu.jpg` — 神経整体タブ用。院長が施術（背骨まわりの調整）をしている様子
   - `images/shinkyu-mondou.jpg` — 鍼灸施術タブ用。院長がクリップボードを使って問診している様子
   - `images/suiso-kyuin.jpg` — 水素吸引タブ用。実際の院内でMERUSA1000を使用している様子（旧`suiso-kyuin.png`は観葉植物のある別カットだったため差し替え、削除済み）
+  - `images/biyoushinkyu.jpg` — 美容鍼灸タブ用。院長が顔に実際にはり治療を行っている様子（旧写真は横向きに座った女性の別カットだったため差し替え）。差し替えに伴い表示パターンも`.menu-side-image`（縦長トリミング）から`.menu-side-image-wide`（横長・全体表示）に変更
 - いずれも既存の`.menu-with-image` / `.menu-side-image-wide`パターン（`aspect-ratio: 5/4`、`object-fit: contain`、横長画像をトリミングせず全体表示）を踏襲
 
 ## 未対応・要確認事項（TODO）
 
 - [x] 公式LINEの友だち追加URL（`https://lin.ee/9CxcSTY` を設定済み）
 - [x] 予約サイトのURL（`https://kisitu-kenbido.stores.jp/reserve/kenbido-shinkyusekkotuin` を設定済み）
-- [x] 美容鍼灸の施術風景写真（`images/biyoushinkyu.jpg`）を施術メニュー・料金セクションの美容鍼灸タブに追加済み。プラン一覧の横に小さめ表示（`.menu-with-image` / `.menu-side-image`、幅200px・縦長トリミング）
+- [x] 美容鍼灸の施術風景写真（`images/biyoushinkyu.jpg`、院長が実際にはり治療を行っている様子）を美容鍼灸タブに追加済み（`.menu-with-image` / `.menu-side-image-wide` パターン）
 - [x] `.menu-grid` を3列グリッドから縦1列に変更（全メニューブロック共通）。他の施術メニュー（神経整体・水素吸引・鍼灸施術）にも今後画像を追加していく想定
 - [x] 水素吸引の施術風景写真（`images/suiso-kyuin.jpg`、水素吸入器MERUSA1000を使用している様子・実際の院内での撮影）を水素吸引タブに追加済み。横長画像のためトリミングせず全体表示（`.menu-side-image-wide`、aspect-ratio 5:4、object-fit: contain）
 - [x] 神経整体の施術風景写真（`images/seitai-sejutsu.jpg`、院長が施術している様子）を神経整体タブに追加済み（`.menu-with-image` / `.menu-side-image-wide` パターン）
